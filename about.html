@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Layesh | Machine Learning Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;700&family=Caveat&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Bluu Next Bold';
+      src: url('fonts/BluuNext-Bold.otf') format('opentype');
+      font-weight: bold;
+      font-style: normal;
+    }
+    
+    body {
+      margin: 0;
+      padding: 1rem;
+      background-color: #18191b;
+      font-family: 'Inter', sans-serif;
+      color: #ffffff;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    .page-container {
+      background-color: #0e0e0e;
+      padding: 4rem;
+      position: relative;
+      min-height: 100vh;
+      margin: 0.3rem 0 0 0;
+      box-sizing: border-box;
+      border-radius: 24px;
+      z-index: 0;
+    }
+    
+    .grid-lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    .grid-lines::before,
+    .grid-lines::after,
+    .grid-lines .center-line,
+    .grid-lines .line-2 {
+      content: '';
+      position: absolute;
+      background: rgba(255, 255, 255, 0.05);
+      z-index: -1;
+    }
+    
+    .grid-lines::before {
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      transform: translateY(-50%);
+    }
+    
+    .grid-lines::after,
+    .grid-lines .center-line,
+    .grid-lines .line-2 {
+      top: 0;
+      bottom: 0;
+      width: 1px;
+    }
+    
+    .grid-lines::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .grid-lines .center-line {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .grid-lines .line-2 {
+      left: 13.05%;
+    }
+    
+    .grid-dot {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translate(-50%, -50%);
+    }
+    
+    nav {
+      position: fixed;
+      top: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(14, 14, 14, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      z-index: 1000;
+      border-radius: 8px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-sizing: border-box;
+      width: calc(62.33% - 37.66% - 7px);
+      margin: 0;
+      height: 4rem;
+      min-width: 180px;
+      max-width: 98vw;
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      margin: 0;
+      height: 50%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
+      align-items: center;
+    }
+    
+    nav ul li {
+      padding: 0;
+    }
+    
+    nav ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      font-size: 0.75rem;
+    }
+    
+    nav ul li a:hover {
+      color: #b3b3b3;
+    }
+    
+    .subtext {
+      margin: 0;
+      color: #b3b3b3;
+      font-size: 0.7rem;
+      background: #1a1a1a;
+      padding: 0;
+      border-radius: 0 0 8px 8px;
+      width: 100%;
+      height: 50%;
+      text-align: center;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .email-link {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+    }
+    
+    .about-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .about-title {
+      font-family: 'Bluu Next Bold', serif;
+      font-size: 5rem;
+      color: #ffffff;
+      margin: 0 0 1rem 0;
+    }
+    
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+      line-height: 1.8;
+      color: #b3b3b3;
+    }
+    
+    .about-section {
+      margin-bottom: 3rem;
+    }
+    
+    .about-section-title {
+      font-family: 'Bluu Next Bold', serif;
+      font-size: 2rem;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+    }
+    
+    .about-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: 0 auto 2rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .skill-tag {
+      font-size: 0.85rem;
+      color: #888;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .back-btn {
+      display: inline-block;
+      margin-top: 3rem;
+      padding: 0.8rem 2rem;
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    /* Contact Band Styles */
+    .contact-band {
+      background-color: #111111;
+      padding: 2rem 0;
+      width: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 2rem;
+    }
+    
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .contact-left {
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    
+    .contact-text {
+      font-family: 'Bluu Next Bold', serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .social-link:hover {
+      color: #cccccc;
+    }
+    
+    .social-link span {
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .footer-credit {
+      font-size: 0.8rem;
+      color: #555;
+      margin-top: 0.5rem;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .contact-popup-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-popup-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    @media (max-width: 768px) {
+      .page-container {
+        padding: 2rem 1rem;
+      }
+      
+      .about-title {
+        font-size: 3rem;
+      }
+      
+      .about-section-title {
+        font-size: 1.5rem;
+      }
+      
+      .contact-container {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .contact-left, .contact-right {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .contact-right {
+        align-items: center;
+      }
+      
+      .social-links {
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <div class="grid-lines">
+      <div class="line-2"></div>
+      <div class="center-line"></div>
+      <div class="grid-dot" style="left:13.05%;top:5%;"></div>
+      <div class="grid-dot" style="left:87.05%;top:5%;"></div>
+      <div class="grid-dot" style="left:13.05%;bottom:18.6%;"></div>
+      <div class="grid-dot" style="left:87.05%;bottom:18.6%;"></div>
+    </div>
+    
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="#" target="_blank">Resume ↗</a></li>
+      </ul>
+      <div class="subtext"><a href="mailto:padolelayesh@gmail.com" style="text-decoration: none; color: rgba(255, 255, 255, 0.5);">Open to work – Email Me 📩</a></div>
+    </nav>
+    
+    <div class="about-header">
+      <div class="about-image" style="background-image: url('images/IMG_6942_cropped.png')"></div>
+      <h1 class="about-title">About Me</h1>
+    </div>
+    
+    <div class="about-content">
+      <div class="about-section">
+        <h2 class="about-section-title">My Journey</h2>
+        <p>My journey in technology began during my undergraduate years when I first discovered the power of machine learning. What started as a curiosity quickly turned into a passion as I delved deeper into algorithms and data analysis.</p>
+        <p>After completing my degree in Computer Science, I joined a startup where I had the opportunity to work on cutting-edge ML projects. The fast-paced environment taught me the importance of building scalable and efficient solutions.</p>
+        <p>One of my proudest moments was leading a team to develop a predictive analytics platform that helped businesses optimize their operations. The project not only improved efficiency but also sparked my interest in the intersection of technology and business impact.</p>
+      </div>
+      
+      <div class="about-section">
+        <h2 class="about-section-title">Skills & Expertise</h2>
+        <p>I specialize in developing machine learning solutions that solve complex business problems. My expertise spans from data preprocessing and feature engineering to model deployment and monitoring.</p>
+        <div class="skills-container">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">Computer Vision</span>
+          <span class="skill-tag">NLP</span>
+          <span class="skill-tag">Data Analysis</span>
+          <span class="skill-tag">Cloud Computing</span>
+          <span class="skill-tag">MLOps</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">FastAPI</span>
+        </div>
+      </div>
+      
+      <div class="about-section">
+        <h2 class="about-section-title">Beyond Code</h2>
+        <p>When I'm not coding, you can find me hiking in the mountains or exploring new coffee shops. I believe that great ideas often come from stepping away from the screen and experiencing the world.</p>
+        <p>I'm also passionate about mentoring aspiring data scientists and contributing to open-source projects. Sharing knowledge and collaborating with others is something I deeply value in the tech community.</p>
+      </div>
+      
+      <a href="index.html" class="back-btn">Back to Home</a>
+    </div>
+    
+    <!-- Contact Band -->
+    <div id="contact" class="contact-band">
+      <div class="contact-container">
+        <div class="contact-left">
+          <div class="contact-text">Get in touch</div>
+          <div class="social-links">
+            <a href="https://github.com/layesh-padole" class="social-link" target="_blank" rel="noopener noreferrer">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>7.4k</span>
+            </a>
+            <a href="https://linkedin.com/in/layesh-padole" class="social-link" target="_blank" rel="noopener noreferrer">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>2.5k</span>
+            </a>
+            <a href="mailto:padolelayesh@gmail.com" class="social-link">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="contact-right">
+          <button id="contactBtn" class="contact-popup-btn">Contact Me</button>
+          <div class="footer-credit">Built with ✨ and code</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -170,32 +170,423 @@
       font-size: 0.85rem;
     }
 
-    .tedx {
-      color: red;
-      font-weight: bold;
-      margin: 0 4px;
+    /* Work Section Styles */
+    .work-section {
+      position: relative;
+      z-index: 2;
+      margin: 4rem 0;
+      padding: 0;
     }
 
-    .grid-lines {
+    /* Desktop styles */
+    .work-header {
       position: absolute;
-      top: 0;
+      left: 13.05%;
+      top: -12.5rem; /* Original desktop position */
+      text-align: left;
+      z-index: 3;
+    }
+    
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      .work-header {
+        top: -8rem;
+        left: 1.5rem;
+      }
+    }
+    
+    .code-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .work-title {
+      font-family: 'Bluu Next Bold', serif;
+      font-size: 5rem;
+      color: #ffffff;
+      margin: 0 0 2rem 0;
+      line-height: 1.2;
+      position: relative;
+      top: 0.5rem;
+    }
+
+    .work-subtitle {
+      font-family: 'Bluu Next Bold', serif;
+      font-size: 5rem;  /* Large size for desktop */
+      color: #666;
+      margin: -1.5rem 0 0 0;  /* Added negative top margin to move it up slightly */
+      font-weight: 400;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    @media (max-width: 1200px) {
+      .work-title { font-size: 4rem; }
+      .work-subtitle { font-size: 4rem; }
+    }
+    
+    @media (max-width: 992px) {
+      .work-title { font-size: 3rem; }
+      .work-subtitle { font-size: 3rem; }
+    }
+    
+    @media (max-width: 768px) {
+      .work-title {
+        font-size: 1.8rem;  /* Increased from 1.5rem */
+        margin-bottom: 1rem;
+        top: 0;
+      }
+      .work-subtitle {
+        font-size: 1.5rem;  /* Increased from 1.2rem */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .projects-container {
+      margin-top: 8rem;
+      position: relative;
+    }
+
+    .project-tile {
+      position: relative;
+      margin-bottom: 0;
+      padding: 3rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      display: flex;
+      align-items: center;
+      min-height: 200px;
+    }
+
+    .project-tile:last-child {
+      border-bottom: none;
+    }
+
+    .project-content {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      max-width: calc(87.05% - 13.05%);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .project-info {
+      flex: 1;
+      text-align: left;
+      max-width: 60%;
+    }
+
+    .project-title {
+      font-family: 'Bluu Next Bold', serif;
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin: 0 0 1rem 0;
+      line-height: 1.3;
+    }
+
+    .project-description {
+      font-size: 0.95rem;
+      color: #b3b3b3;
+      line-height: 1.6;
+      margin: 0 0 1.5rem 0;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .project-tag {
+      font-size: 0.75rem;
+      color: #888;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.4rem 0.8rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .project-visual {
+      flex-shrink: 0;
+      width: 200px;  /* Increased from 120px */
+      height: 200px;  /* Increased from 120px */
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 3rem;  /* Increased from 2rem */
+    }
+    
+    /* About Section */
+    .about-section {
+      padding: 8rem 0;
+      position: relative;
+      /* Removed background color to match page container */
+    }
+    
+    .about-header {
+      position: relative;
+      margin-bottom: 4rem;
+      text-align: left;
+      padding: 0 13.05%;
+    }
+    
+    .about-title {
+      font-family: 'Bluu Next Bold', serif;
+      font-size: 5rem;
+      color: #ffffff;
+      margin: 0 0 0.5rem 0;
+      line-height: 1.2;
+    }
+    
+    .about-subtitle {
+      font-family: 'Bluu Next Bold', serif;
+      font-size: 5rem;
+      color: #666;
+      margin: 0;
+      font-weight: 400;
+    }
+    
+    .dialogue-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+    }
+    
+    .dialogue-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0px; /* Sharp corners instead of rounded */
+      padding: 3rem;
+      position: relative;
+      max-height: 300px;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Paper-like subtle shadow */
+      background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 20px 20px;
+      background-position: -1px -1px;
+    }
+    
+    .dialogue-box.expanded {
+      max-height: 1000px;
+    }
+    
+    .dialogue-box p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #b3b3b3;
+      margin-bottom: 1.5rem;
+    }
+    
+    .dialogue-fade {
+      position: absolute;
+      bottom: 0;
       left: 0;
+      right: 0;
+      height: 100px;
+      background: linear-gradient(to bottom, 
+        rgba(14, 14, 14, 0) 0%, 
+        rgba(14, 14, 14, 0.9) 70%, 
+        #0e0e0e 100%);
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    
+    .dialogue-box.expanded .dialogue-fade {
+      opacity: 0;
+    }
+    
+    .dialogue-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #000000;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      padding: 0.8rem 1.8rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin: 0;
+      transition: all 0.3s ease;
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      text-decoration: none;
+    }
+    
+    .dialogue-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .dialogue-btn svg {
+      transition: transform 0.3s ease;
+    }
+    
+    .dialogue-btn.expanded svg {
+      transform: rotate(180deg);
+    }
+    
+    @media (max-width: 768px) {
+      .about-title {
+        font-size: 1.8rem; /* Match work title mobile size */
+        margin-bottom: 1rem;
+      }
+      
+      .about-subtitle {
+        font-size: 1.5rem; /* Match work subtitle mobile size */
+      }
+      
+      .about-header {
+        padding: 0 1.5rem;
+      }
+      
+      .dialogue-box {
+        padding: 2rem 1.5rem;
+      }
+      
+      .dialogue-box p {
+        font-size: 1rem;
+      }
+    }
+    
+    /* View All Button Styles */
+    .view-all-container {
+      text-align: center;
+      margin: 4rem 0 2rem;
+    }
+    
+    .view-all-btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .view-all-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    @media (max-width: 768px) {
+      .view-all-btn {
+        padding: 0.7rem 1.8rem;
+        font-size: 0.95rem;
+      }
+    }
+    
+    .project-visual img {
       width: 100%;
       height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;  /* Smooth hover effect */
+    }
+    
+    .project-visual:hover img {
+      transform: scale(1.05);  /* Slight zoom on hover */
+    }
+
+    .hero-divider {
+      border: none;
+      border-top: 1.5px solid rgba(255,255,255,0.12);
+      margin: 2.5rem 0 1.5rem 0;
+      width: 100vw;
+      position: relative;
+      left: 0;
+      right: 0;
+      max-width: 100vw;
+      box-sizing: border-box;
+    }
+
+    .grid-lines, .work-grid-lines {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 200vh;
       pointer-events: none;
       z-index: 1;
     }
+
+    .grid-lines { top: 0; }
+    .work-grid-lines { top: -100vh; }
 
     .grid-lines::before,
     .grid-lines::after,
     .grid-lines .center-line,
     .grid-lines .line-2,
-    .grid-lines .horizontal-line-2 {
+    .grid-lines .horizontal-line-2,
+    .work-grid-lines::before,
+    .work-grid-lines::after,
+    .work-grid-lines .center-line,
+    .work-grid-lines .line-2,
+    .work-grid-lines .horizontal-line-2 {
       content: "";
       position: absolute;
       width: 1px;
+      height: 200vh;
       background: rgba(255, 255, 255, 0.07);
+      top: 0;
+      bottom: auto;
     }
+    
+    .work-grid-lines {
+      position: absolute;
+      top: -100vh;
+      left: 0;
+      width: 100%;
+      height: 200vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .work-grid-lines .horizontal-line {
+      content: "";
+      position: absolute;
+      left: 13.05%;
+      right: 13.05%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.07);
+      width: auto;
+    }
+
+    .work-grid-lines::before,
+    .work-grid-lines .line-2,
+    .work-grid-lines .center-line,
+    .work-grid-lines::after {
+      top: 0;
+      bottom: 0;
+      height: 100%;
+    }
+
+    .work-grid-lines::before { left: 13.05%; }
+    .work-grid-lines .line-2 { left: 37.66%; }
+    .work-grid-lines .center-line { left: 62.33%; }
+    .work-grid-lines::after { left: 87.05%; }
 
     .grid-lines::before,
     .grid-lines::after,
@@ -247,7 +638,13 @@
       pointer-events: none;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      /* Base font size adjustments */
+      html {
+        font-size: 14px;
+      }
+      
+      /* Navigation */
       nav {
         left: 1vw;
         right: 1vw;
@@ -264,6 +661,59 @@
         font-size: 0.65rem;
         padding: 0 0.5rem;
       }
+      
+      /* Hero Section */
+      .headline {
+        font-size: 2.2rem;
+        line-height: 1.2;
+      }
+      .subheadline {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      /* Work Section */
+      .projects-container {
+        margin-top: 4rem;
+      }
+      .project-tile {
+        flex-direction: column;
+        padding: 2rem 0;
+        min-height: auto;
+      }
+      .project-content {
+        flex-direction: column;
+        padding: 0 1.5rem;
+        max-width: 100%;
+      }
+      .project-info {
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+      }
+      .project-visual {
+        width: 100%;
+        height: 200px;
+        margin: 1rem 0 0 0;
+      }
+      .project-title {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+      }
+      .project-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.2rem;
+      }
+      
+      /* Adjustments for very small screens */
+      @media (max-width: 480px) {
+        .headline {
+          font-size: 1.8rem;
+        }
+        .project-visual {
+          height: 160px;
+        }
+      }
     }
 
     .hero-divider {
@@ -276,6 +726,183 @@
       right: 0;
       max-width: 100vw;
       box-sizing: border-box;
+    }
+    .hero-divider-secondary {
+      border: none;
+      border-top: 1.5px solid rgba(255,255,255,0.12);
+      margin: 2.5rem 0 1.5rem 0;
+      width: 100vw;
+      position: relative;
+      left: 0;
+      right: 0;
+      max-width: 100vw;
+      box-sizing: border-box;
+    }
+    
+    /* Contact Band Styles */
+    .contact-band {
+      background-color: #111111;
+      padding: 2rem 0;
+      width: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 2rem;
+    }
+    
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .contact-text {
+      font-family: 'Bluu Next Bold', serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+    
+    .contact-subtext {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #666666;
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .contact-left {
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .social-link:hover {
+      color: #cccccc;
+    }
+    
+    .social-link span {
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    @media (max-width: 768px) {
+      .social-links {
+        gap: 1.5rem;
+      }
+    }
+    
+    .footer-credit {
+      font-size: 0.8rem;
+      color: #555;
+      margin-top: 0.5rem;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    /* Contact Popup Styles */
+    .contact-popup-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-popup-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .contact-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    
+    .contact-popup.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    .contact-popup-content {
+      background: #111111;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      max-width: 400px;
+      width: 90%;
+      position: relative;
+    }
+    
+    .contact-popup-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    .contact-popup-title {
+      font-family: 'Bluu Next Bold', serif;
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-popup-item {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .contact-popup-item a {
+      color: #ffffff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .contact-popup-item a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -290,15 +917,22 @@
       <div class="grid-dot" style="left:13.05%;bottom:18.6%;"></div>
       <div class="grid-dot" style="left:87.05%;bottom:18.6%;"></div>
     </div>
+    <div class="work-grid-lines">
+      <div class="line-2"></div>
+      <div class="center-line"></div>
+      <div class="horizontal-line" style="top: 210vh;"></div>
+      <div class="horizontal-line" style="top: 250vh;"></div>
+      <div class="horizontal-line" style="top: 410vh;"></div>
+    </div>
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#">Work</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#" id="contactNavBtn">Contact</a></li>
         <li><a href="#" target="_blank">Resume ↗</a></li>
       </ul>
-      <div class="subtext">Open to work – Email Me 📩</div>
+      <div class="subtext"><a href="mailto:padolelayesh@gmail.com" style="text-decoration: none; color: rgba(255, 255, 255, 0.5);">Open to work – Email Me 📩</a></div>
     </nav>
 
     <section class="hero">
@@ -317,8 +951,212 @@
         Building <span class="highlight">ellae.in</span> streamlining job applications with automation and AI.
       </div>
       <hr class="hero-divider">
+      <hr class="hero-divider-secondary">
     </section>
+
+    <!-- Work Section -->
+    <section class="work-section">
+      <div class="work-header">
+        <h2 class="work-title">Work.</h2>
+        <p class="work-subtitle">A selection of recent projects.</p>
+      </div>
+      
+      <div class="projects-container">
+        <div class="project-tile">
+          <div class="project-content">
+            <div class="project-info">
+              <h3 class="project-title">SAS Log Debugging Assistant</h3>
+              <p class="project-description">
+                Developed a React-based internal tool augmented with LLM capabilities to streamline debugging of large SAS codebases. Integrated features include natural language error trace analysis, upstream table dependency mapping, LLM-powered hotfix and documentation search, significantly reducing issue resolution time.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Machine Learning</span>
+                <span class="project-tag">FastAPI</span>
+                <span class="project-tag">React</span>
+                <span class="project-tag">Agents</span>
+              </div>
+            </div>
+            <div class="project-visual">
+              <img src="images/sas-debug-tool.png" alt="SAS Log Debugging Assistant">
+            </div>
+          </div>
+        </div>
+
+        <div class="project-tile">
+          <div class="project-content">
+            <div class="project-info">
+              <h3 class="project-title">Credit Scoring Using Alternate Data Sources</h3>
+              <p class="project-description">
+                Built a credit scoring model leveraging non-traditional data—like mobile usage, utility bills, and behavioral signals—to assess borrower risk more inclusively and accurately than traditional financial metrics.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">TensorFlow</span>
+                <span class="project-tag">PostgreSQL</span>
+                <span class="project-tag">Docker</span>
+                <span class="project-tag">AWS</span>
+              </div>
+            </div>
+            <div class="project-visual">📊</div>
+          </div>
+        </div>
+
+        <div class="project-tile">
+          <div class="project-content">
+            <div class="project-info">
+              <h3 class="project-title">Climate Risk Modeling Using Topological Data Analysis (TDA)
+              </h3>
+              <p class="project-description">
+                Applied Topological Data Analysis (TDA) to model and interpret climate-related risks by uncovering hidden patterns in high-dimensional environmental datasets, enabling more robust forecasting and anomaly detection.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">PyTorch</span>
+                <span class="project-tag">OpenCV</span>
+                <span class="project-tag">Giotto-TDA</span>
+                <span class="project-tag">GCP</span>
+              </div>
+            </div>
+            <div class="project-visual">👁️</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- View All Projects Button -->
+      <div class="view-all-container">
+        <a href="work.html" class="view-all-btn">View All Projects ↓</a>
+      </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about-section">
+    <div class="about-header">
+      <h2 class="about-title">About.</h2>
+      <p class="about-subtitle">My Journey</p>
+    </div>
+    
+    <div class="dialogue-container">
+      <div class="dialogue-box">
+        <p>My journey in technology began during my undergraduate years when I first discovered the power of machine learning. What started as a curiosity quickly turned into a passion as I delved deeper into algorithms and data analysis.</p>
+        
+        <div class="dialogue-more" id="dialogueMore">
+          <p>After completing my degree in Computer Science, I joined a startup where I had the opportunity to work on cutting-edge ML projects. The fast-paced environment taught me the importance of building scalable and efficient solutions.</p>
+          <p>One of my proudest moments was leading a team to develop a predictive analytics platform that helped businesses optimize their operations. The project not only improved efficiency but also sparked my interest in the intersection of technology and business impact.</p>
+          <p>When I'm not coding, you can find me hiking in the mountains or exploring new coffee shops. I believe that great ideas often come from stepping away from the screen and experiencing the world.</p>
+        </div>
+        
+        <div class="dialogue-fade"></div>
+      </div>
+      
+      <a href="about.html" class="dialogue-btn" id="dialogueBtn">
+        Read More
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </a>
+    </div>
+  </section>
+  
+  <!-- Contact Band -->
+  <div id="contact" class="contact-band">
+    <div class="contact-container">
+      <div class="contact-left">
+        <div class="contact-text">Get in touch</div>
+      </div>
+      <div class="contact-right">
+        <div class="social-links">
+          <a href="https://github.com/layesh-padole" class="social-link" target="_blank" rel="noopener noreferrer">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>7.4k</span>
+          </a>
+          <a href="https://linkedin.com/in/layesh-padole" class="social-link" target="_blank" rel="noopener noreferrer">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>2.5k</span>
+          </a>
+          <a href="mailto:padolelayesh@gmail.com" class="social-link">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        <div class="footer-credit">Built with ✨ and code</div>
+      </div>
+    </div>
   </div>
-  <hr class="hero-divider">
+  </div>
+  
+  <script>
+    // Smooth scrolling for anchor links
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // No longer need toggle functionality since button now links to about page
+  </script>
+  
+  <!-- Contact Popup -->
+  <div class="contact-popup" id="contactPopup">
+    <div class="contact-popup-content">
+      <button class="contact-popup-close" id="closePopup">&times;</button>
+      <h3 class="contact-popup-title">Let's Connect</h3>
+      <div class="contact-popup-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <a href="mailto:padolelayesh@gmail.com">padolelayesh@gmail.com</a>
+      </div>
+      <div class="contact-popup-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <a href="https://linkedin.com/in/layesh-padole" target="_blank">linkedin.com/in/layesh-padole</a>
+      </div>
+      <div class="contact-popup-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <a href="https://github.com/layesh-padole" target="_blank">github.com/layesh-padole</a>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Contact Popup
+    const contactNavBtn = document.getElementById('contactNavBtn');
+    const contactPopup = document.getElementById('contactPopup');
+    const closePopup = document.getElementById('closePopup');
+    
+    contactNavBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      contactPopup.classList.add('active');
+    });
+    
+    closePopup.addEventListener('click', function() {
+      contactPopup.classList.remove('active');
+    });
+    
+    // Close popup when clicking outside content
+    contactPopup.addEventListener('click', function(e) {
+      if (e.target === contactPopup) {
+        contactPopup.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
