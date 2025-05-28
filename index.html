@@ -21,6 +21,17 @@
       text-align: center;
       height: 100vh;
       overflow: hidden;
+      transition: opacity 0.3s ease;
+    }
+    
+    /* Page transition animation */
+    .page-transition {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .page-transition-visible {
+      opacity: 1;
     }
 
     .page-container {
@@ -76,8 +87,25 @@
       color: #ffffff;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
       font-size: 0.75rem;
+      position: relative;
+      padding: 0.2rem 0.1rem;
+    }
+    
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: #ffffff;
+      transition: width 0.3s ease;
+    }
+    
+    nav ul li a:hover::after {
+      width: 100%;
     }
 
     nav ul li a:hover {
@@ -414,7 +442,7 @@
       background: #000000;
       color: #ffffff;
       border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 30px;
+      border-radius: 4px;
       padding: 0.8rem 1.8rem;
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
@@ -427,11 +455,29 @@
       left: 50%;
       transform: translateX(-50%);
       text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .dialogue-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+      transition: all 0.5s ease;
     }
     
     .dialogue-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateY(-2px);
+      background: #ffffff;
+      color: #000000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .dialogue-btn:hover::before {
+      left: 100%;
     }
     
     .dialogue-btn svg {
@@ -477,18 +523,37 @@
       background: transparent;
       color: #ffffff;
       border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 30px;
+      border-radius: 4px;
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
       font-weight: 500;
       text-decoration: none;
       transition: all 0.3s ease;
       cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .view-all-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+      transition: all 0.5s ease;
+    }
+    
+    .view-all-btn:hover::before {
+      left: 100%;
     }
     
     .view-all-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: #ffffff;
+      color: #000000;
       transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
     
     @media (max-width: 768px) {
@@ -513,11 +578,11 @@
       border: none;
       border-top: 1.5px solid rgba(255,255,255,0.12);
       margin: 2.5rem 0 1.5rem 0;
-      width: 100vw;
+      width: 100%;
       position: relative;
       left: 0;
       right: 0;
-      max-width: 100vw;
+      max-width: 100%;
       box-sizing: border-box;
     }
 
@@ -637,9 +702,41 @@
     }
 
     @media (max-width: 768px) {
+      /* Hide curly arrow in mobile mode */
+      div[style*="width: 70px; height: 40px; position: absolute; left: calc(33%); top: 7rem;"] {
+        display: none;
+      }
+      
       /* Base font size adjustments */
       html {
         font-size: 14px;
+      }
+      
+      body {
+        padding: 0.2rem;
+        overflow-x: hidden;
+      }
+      
+      .page-container {
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        overflow-x: hidden;
+      }
+      
+      .work-title {
+        font-size: 1.8rem;
+      }
+      
+      .about-title {
+        font-family: 'Bluu Next Bold', serif;
+        font-size: 1.5rem;
+        margin: 0 0 0.5rem 0;
+        line-height: 1.2;
+      }
+      
+      .contact-popup-content {
+        padding: 2rem 1.5rem;
+        width: 85%;
       }
       
       /* Navigation */
@@ -718,28 +815,30 @@
       border: none;
       border-top: 1.5px solid rgba(255,255,255,0.12);
       margin: 2.5rem 0 1.5rem 0;
-      width: 100vw;
+      width: 100%;
       position: relative;
       left: 0;
       right: 0;
-      max-width: 100vw;
+      max-width: 100%;
       box-sizing: border-box;
     }
     .hero-divider-secondary {
       border: none;
       border-top: 1.5px solid rgba(255,255,255,0.12);
       margin: 2.5rem 0 1.5rem 0;
-      width: 100vw;
+      width: 100%;
       position: relative;
       left: 0;
       right: 0;
-      max-width: 100vw;
+      max-width: 100%;
       box-sizing: border-box;
     }
     
     /* Contact Band Styles */
     .contact-band {
-      background-color: #111111;
+      background-color: rgba(17, 17, 17, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       padding: 2rem 0;
       width: 100%;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -757,9 +856,9 @@
     }
     
     .contact-text {
-      font-family: 'Bluu Next Bold', serif;
-      font-weight: 600;
-      font-size: 1.5rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 1.2rem;
       color: #ffffff;
       margin-bottom: 0.5rem;
     }
@@ -807,8 +906,54 @@
     }
     
     @media (max-width: 768px) {
+      .contact-band {
+        padding: 1rem 0;
+      }
+      
+      .contact-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .contact-left, .contact-right {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .contact-text {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+      }
+      
       .social-links {
         gap: 1.5rem;
+        justify-content: center;
+      }
+      
+      .social-link span {
+        font-size: 0.8rem;
+      }
+      
+      .footer-credit {
+        margin-top: 1rem;
+        font-size: 0.75rem;
+      }
+      
+      /* Contact popup mobile styles */
+      .contact-popup-content {
+        padding: 1.5rem;
+        max-width: 320px;
+      }
+      
+      .contact-popup-title {
+        font-size: 1.2rem;
+      }
+      
+      .contact-popup-item {
+        margin-bottom: 0.75rem;
       }
     }
     
@@ -858,12 +1003,19 @@
     }
     
     .contact-popup-content {
-      background: #111111;
+      background: rgba(17, 17, 17, 0.8);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 2rem;
+      padding: 2.5rem;
       max-width: 400px;
       width: 90%;
       position: relative;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      background-image: linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(20, 20, 20, 0.8) 100%);
+      transform: perspective(1000px) rotateX(2deg);
+      transform-style: preserve-3d;
     }
     
     .contact-popup-close {
@@ -1154,6 +1306,35 @@
       if (e.target === contactPopup) {
         contactPopup.classList.remove('active');
       }
+    });
+  </script>
+  
+  <script>
+    // Page transition animation
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('page-transition');
+      setTimeout(function() {
+        document.body.classList.add('page-transition-visible');
+      }, 100);
+      
+      // Add transition effect to all internal links
+      const internalLinks = document.querySelectorAll('a[href^="/"], a[href^="./"], a[href^="../"], a[href^="index"], a[href^="work"], a[href^="about"]');
+      
+      internalLinks.forEach(link => {
+        if (!link.getAttribute('target')) {
+          link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href.indexOf('#') !== 0) { // Not an anchor link
+              e.preventDefault();
+              document.body.classList.remove('page-transition-visible');
+              
+              setTimeout(function() {
+                window.location.href = href;
+              }, 300);
+            }
+          });
+        }
+      });
     });
   </script>
 </body>
