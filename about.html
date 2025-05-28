@@ -335,6 +335,24 @@
         padding: 2rem 1rem;
       }
       
+      /* Navigation */
+      nav {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 98vw;
+        min-width: 0;
+        height: auto;
+      }
+      nav ul {
+        gap: 0.5rem;
+        font-size: 0.7rem;
+        padding: 0.25rem 0.25rem;
+      }
+      .subtext {
+        font-size: 0.65rem;
+        padding: 0 0.5rem;
+      }
+      
       .about-title {
         font-size: 3rem;
       }
@@ -429,6 +447,8 @@
       <div class="contact-container">
         <div class="contact-left">
           <div class="contact-text">Get in touch</div>
+        </div>
+        <div class="contact-right">
           <div class="social-links">
             <a href="https://github.com/layesh-padole" class="social-link" target="_blank" rel="noopener noreferrer">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -436,7 +456,7 @@
               </svg>
               <span>7.4k</span>
             </a>
-            <a href="https://linkedin.com/in/layesh-padole" class="social-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://linkedin.com/in/layeshpadole" class="social-link" target="_blank" rel="noopener noreferrer">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -451,9 +471,6 @@
               </svg>
             </a>
           </div>
-        </div>
-        <div class="contact-right">
-          <button id="contactBtn" class="contact-popup-btn">Contact Me</button>
           <div class="footer-credit">Built with ✨ and code</div>
         </div>
       </div>
